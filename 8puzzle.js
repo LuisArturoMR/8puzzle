@@ -26,14 +26,13 @@ function bfsArray(node, myMoves,i){
     nodeArray[myMoves[j]] = 0;
     nodeArray[i] = temp;
     nodes[j] = nodeArray.slice();
-    console.log("Nodojeje:",nodes);
-    console.log("Move ",nodeArray);
+    console.log("Nodo:",nodes);
+    console.log("Move: ",nodeArray);
     cont = count(nodeArray);
     best[j] = cont;
     console.log("BFS: "+cont);
   }
   var max = Math.max.apply(null,best);
-  console.log("Max: ",max);
 
   for (var i = 0; i < best.length; i++) {
 
@@ -45,6 +44,7 @@ function bfsArray(node, myMoves,i){
       else {
         console.log("return :", nodes[i]);
         repeat = nodes[i].slice();
+        document.getElementById("data").innerHTML+= nodes[i]+"<br>";
         return nodes[i];
       }
     }
@@ -53,6 +53,7 @@ function bfsArray(node, myMoves,i){
   return null;
 }
 
+console.time('bfs');
 function bfs(node1){
   var nodeArray = node1.slice();
   for (var i = 0; i < nodeArray.length; i++) {
@@ -66,11 +67,13 @@ function bfs(node1){
     console.log("DIME:",count(bestArray));
     console.log("Not ready: ", bestArray);
     console.log("Last save:", repeat);
-    // bfs(bestArray);
+    bfs(bestArray);
   }else {
     console.log("Finished: ", bestArray);
+    document.getElementById("result").innerHTML= bestArray;
     return bestArray;
   }
 }
+console.timeEnd('bfs');
 
   console.log(puzzleSolved = bfs(puzzle));

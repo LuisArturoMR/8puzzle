@@ -10,5 +10,8 @@ function shuffle(array) {
   }
   return array;
 }
-var puzzle = shuffle(puzzle);
+// var puzzle = shuffle(puzzle);
+var puzzle = [1,2,3,0,5,6,4,7,8];
+
+document.getElementById("initialMatrix").innerHTML= puzzle;
 console.log("New Random 8Puzzle created:",puzzle);
